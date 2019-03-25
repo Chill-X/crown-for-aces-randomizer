@@ -13,7 +13,7 @@ const TOKEN_PATH = 'token.json';
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   // Authorize a client with credentials, then call the Google Sheets API.
-  authorize(JSON.parse(content), listMajors);
+  authorize(JSON.parse(content), getSongData);
 });
 
 /**
@@ -90,3 +90,21 @@ function listMajors(auth) {
     }
   });
 }
+
+function getSongData(auth) {
+    const sheets = google.sheets({version: 'v4', auth});
+    sheets.spreadsheets.values.get({
+      spreadsheetId: '1vcmvMMa2U12Sjv-1d38DbV1vi5NeGIG0Z3JC4CKER5Y',
+      range: 'Sheet1',
+    }, (err, res) => {
+      if (err) return console.log('The API returned an error: ' + err);
+      const rows = res.data.values;
+      if (rows.length) {
+        rows.map((row) => {
+          console.log(`${row}`);
+        });
+      } else {
+        console.log('No data found.');
+      }
+    });
+  }
