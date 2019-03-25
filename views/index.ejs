@@ -3,13 +3,14 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type='text/javascript' src='/javascripts/randomizer.js'></script>
+    <script type="text/javascript">
+      var songData = <%- JSON.stringify(songData) %>;
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p><%= songData[0] %></p>
-    <p><%= songData[1] %></p>
-    <p><%= songData[2] %></p>
-    <p><%= songData[3] %></p>
-    <p><%= songData[4] %></p>
+    <input id='lower'> <input id='upper'> <input id='count'>
+    <button onclick='randomize(songData)'>Randomize</button>
   </body>
 </html>

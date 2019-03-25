@@ -18,13 +18,6 @@ fs.readFile('credentials.json', (err, content) => {
   authorize(JSON.parse(content), getSongData);
 });
 
-function getSongDataAuth() {
-  fs.readFile('credentials.json'), (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    authorize(JSON.parse(content), getSongData);
-  }
-}
-
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
@@ -109,13 +102,6 @@ function getSongData(auth) {
     if (err) return console.log('The API returned an error: ' + err);
     const rows = res.data.values;
     module.exports.songData = rows;
-    if (rows.length) {
-      rows.map((row) => {
-        console.log(`${row}`);
-      });
-    } else {
-      console.log('No data found.');
-    }
   });
 }
 
