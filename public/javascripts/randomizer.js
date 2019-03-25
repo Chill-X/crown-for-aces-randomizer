@@ -4,14 +4,14 @@ function randomize(songData) {
   var count = parseInt(document.getElementById('count').value);
   var songList = [];
   var randomized = [];
-  var difficulties = ['Beginner', 'Basic', 'Difficult', 'Expert', 'Challenge'];
+  var difficulties = ['Expert', 'Challenge'];
 
   if (songData.length) {
 
     // Add songs within difficulty range
     songData.map((song) => {
       for (var i = 0; i < difficulties.length; i++) {
-        var diff = parseInt(song[i+3]);
+        var diff = parseInt(song[i+6]);
         if (diff >= lower && diff <= upper) {
           songList.push(song[1] + ' [' + difficulties[i] + ' - ' + diff + ']');
         }
@@ -35,6 +35,13 @@ function randomize(songData) {
       var p = document.createElement('p');
       var str = document.createTextNode(song);
       p.appendChild(str);
+      p.onclick = function() {
+        if (p.style.opacity == '0.25') {
+          p.style.opacity = '1.0';
+        } else {
+          p.style.opacity = '0.25';
+        }
+      }
       document.body.appendChild(p);
     });
 
