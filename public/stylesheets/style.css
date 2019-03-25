@@ -5,15 +5,33 @@
 
 body {
   padding: 50px;
-  font: 36px "EnterSansman", "Lucida Grande", Helvetica, Arial, sans-serif;
-  align-content: right;
+  font: 32px "EnterSansman", "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
-  background-image: url('/images/poster_bg.png');
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/images/poster_bg.png');
   background-size: cover;
 }
 
+h3 {
+  font: 12px;
+}
+
+select {
+  font: 32px "EnterSansman";
+  text-align: center;
+}
+
+input {
+  width: 50px;
+  font: 32px "EnterSansman";
+  text-align: center;
+}
+
+button {
+  font: 32px "EnterSansman";
+}
+
 p {
-  font: 36px "kozuka-gothic-pro", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 32px "kozuka-gothic-pro", "Lucida Grande", Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
 

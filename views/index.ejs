@@ -17,10 +17,20 @@
         h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
       })(document);
     </script>
+    <script>
+      window.onload = function() {
+        var lowerSelect = document.getElementById('lower');
+        var upperSelect = document.getElementById('upper');
+        for (var i = 1; i < 20; i++) {
+          lowerSelect.options[i] = new Option(i, i);
+          upperSelect.options[i] = new Option(i, i);
+      }
+      }
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <input id='lower'> <input id='upper'> <input id='count'>
+    <input id='count'> songs from level <select id='lower'></select> to <select id='upper'></select>:
     <button onclick='randomize(songData)'>Randomize</button>
     <br>
     <br>
