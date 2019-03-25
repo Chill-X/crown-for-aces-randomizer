@@ -1,6 +1,24 @@
+@font-face {
+  font-family: EnterSansman;
+  src: local("Enter Sansman"), url(/fonts/entsans.ttf);
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 36px "EnterSansman", "Lucida Grande", Helvetica, Arial, sans-serif;
+  align-content: right;
+  text-align: center;
+  background-image: url('/images/poster_bg.png');
+  background-size: cover;
+}
+
+p {
+  font: 36px "kozuka-gothic-pro", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+img {
+  opacity: 0.5;
 }
 
 a {
