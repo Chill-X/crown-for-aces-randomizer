@@ -18,12 +18,35 @@ h3 {
 select {
   font: 32px "EnterSansman";
   text-align: center;
+  background-color: transparent;
+  border: 0px solid;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 input {
-  width: 50px;
+  background-color: transparent;
+  border: 0px solid;
+}
+
+#count {
+  width: 48px;
   font: 32px "EnterSansman";
-  text-align: center;
+  text-align: right;
+}
+
+#p1 {
+  width: 440px;
+  font: 64px "EnterSansman";
+  text-align: right;
+}
+
+#p2 {
+  width: 440px;
+  font: 64px "EnterSansman";
+  text-align: left;
 }
 
 button {
