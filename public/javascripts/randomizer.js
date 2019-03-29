@@ -13,16 +13,25 @@ function randomize(songData) {
       for (var i = 0; i < difficulties.length; i++) {
         var diff = parseInt(song[i+6]);
         if (diff >= lower && diff <= upper) {
-          songList.push(song[1] + ' [' + difficulties[i] + ' - ' + diff + ']');
+          if (songList[diff - lower] == null) {
+            songList[diff - lower] = [];
+          }
+          songList[diff - lower].push(song[1] + ' [' + difficulties[i] + ' - ' + diff + ']');
         }
       }
     });
 
+    console.log(songList[0]);
+    console.log(songList[1]);
+
     // Get random songs according to count
     for (var i = 0; i < count; i++) {
-      var index = Math.floor((Math.random() * songList.length));
-      randomized.push(songList[index]);
-      songList.splice(index, 1);
+      var diffIndex = Math.floor(Math.random() * songList.length);
+      console.log(diffIndex);
+      var songIndex = Math.floor(Math.random() * songList[diffIndex].length);
+      console.log(songIndex);
+      randomized.push(songList[diffIndex][songIndex]);
+      songList[diffIndex].splice(songIndex, 1);
     }
 
     // Remove previous songs
