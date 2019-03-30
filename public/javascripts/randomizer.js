@@ -12,7 +12,10 @@ function randomize(songData) {
     songData.map((song) => {
       for (var i = 0; i < difficulties.length; i++) {
         var diff = parseInt(song[i+6]);
-        if (diff >= lower && diff <= upper) {
+        var label = song[0];
+        var checked = document.getElementById('defaultCheckbox').checked;
+        // Default songs and final stage songs only (Rinon CSPs are locked) if checked
+        if (diff >= lower && diff <= upper && (checked || label == '' || (label == 'FIN SEC' && i != 1))) {
           if (songList[diff - lower] == null) {
             songList[diff - lower] = [];
           }
@@ -21,15 +24,15 @@ function randomize(songData) {
       }
     });
 
-    console.log(songList[0]);
-    console.log(songList[1]);
+    songList.map((diff) => {
+      console.log(diff.length);
+    })
 
     // Get random songs according to count
     for (var i = 0; i < count; i++) {
+      // Uniform distribution across
       var diffIndex = Math.floor(Math.random() * songList.length);
-      console.log(diffIndex);
       var songIndex = Math.floor(Math.random() * songList[diffIndex].length);
-      console.log(songIndex);
       randomized.push(songList[diffIndex][songIndex]);
       songList[diffIndex].splice(songIndex, 1);
     }
