@@ -58,6 +58,12 @@ button {
 p {
   font: 32px "kozuka-gothic-pro", "Lucida Grande", Helvetica, Arial, sans-serif;
   font-weight: 700;
+  -webkit-animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 img {
